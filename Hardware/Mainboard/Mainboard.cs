@@ -13,7 +13,7 @@ using System.Text;
 using OpenHardwareMonitor.Hardware.LPC;
 
 namespace OpenHardwareMonitor.Hardware.Mainboard {
-  internal class Mainboard : IHardware {
+  public class Mainboard : IHardware {
     private readonly SMBIOS smbios;
     private readonly string name;
     private string customName;
@@ -21,6 +21,14 @@ namespace OpenHardwareMonitor.Hardware.Mainboard {
     private readonly LPCIO lpcio;
     private readonly LMSensors lmSensors;
     private readonly Hardware[] superIOHardware;
+
+        public SMBIOS SMBIOS
+        {
+            get
+            {
+                return this.smbios;
+            }
+        }
 
     public Mainboard(SMBIOS smbios, ISettings settings) {
       this.settings = settings;
